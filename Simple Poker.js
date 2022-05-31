@@ -536,7 +536,3 @@ console.log(`The computer's cards are: `, showComHand())
 console.log(evaluateHands(comAttr))
 console.log('')
 console.log(scoring())
-
-
-//console.log(deck._cards)
-//console.log(deck.playerHand)
