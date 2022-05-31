@@ -10,351 +10,60 @@
 // establish the deck of cards
 
 const deck = {
-        _cards: [
-            {
-                name: '2 Of Clubs',
-                shortHand: '2C',
-                suit: 'clubs',
-                value: 2
+        _cards: [],
+
+        buildDeck() {
+                const suits = ['Clubs', 'Spades', 'Hearts', 'Diamonds'];
+                const faces = ['Jack', 'Queen', 'King', 'Ace'];
+                for(let val = 2; val < 15; val++) {
+                let face = String(val);
+                if(val > 10) {
+                    face = faces[val - 11];
+                } 
+                for(let suit of suits) {
+                    this._cards.push(
+                    {
+                        name: `${face} Of ${suit}`,
+                        //shortHand: `${face}${suit[0]}`,
+                        suit: suit,
+                        value: val
+                    }
+                    )
+                }
+                }
         },
-        {
-                name: '3 Of Clubs',
-                shortHand: '3C',
-                suit: 'clubs',
-                value: 3
-        },
-        {
-                name: '4 Of Clubs',
-                shortHand: '4C',
-                suit: 'clubs',
-                value: 4
-        },
-        {
-                name: '5 Of Clubs',
-                shortHand: '5C',
-                suit: 'clubs',
-                value: 5
-        },
-        {
-                name: '6 Of Clubs',
-                shortHand: '6C',
-                suit: 'clubs',
-                value: 6
-        },
-        {
-                name: '7 Of Clubs',
-                shortHand: '7C',
-                suit: 'clubs',
-                value: 7
-        },
-        {
-                name: '8 Of Clubs',
-                shortHand: '8C',
-                suit: 'clubs',
-                value: 8
-        },
-        {
-                name: '9 Of Clubs',
-                shortHand: '9C',
-                suit: 'clubs',
-                value: 9
-        },
-        {
-                name: '10 Of Clubs',
-                shortHand: '10C',
-                suit: 'clubs',
-                value: 10
-        },
-        {
-                name: 'Jack Of Clubs',
-                shortHand: 'JC',
-                suit: 'clubs',
-                value: 11
-        },
-        {
-                name: 'Queen Of Clubs',
-                shortHand: 'QC',
-                suit: 'clubs',
-                value: 12
-        },
-        {
-                name: 'King Of Clubs',
-                shortHand: 'KC',
-                suit: 'clubs',
-                value: 13
-        },
-        {
-                name: 'Ace Of Clubs',
-                shortHand: 'AC',
-                suit: 'clubs',
-                value: 14
-        },
-        {
-                name: '2 Of Diamonds',
-                shortHand: '2D',
-                suit: 'diamonds',
-                value: 2
-        },
-        {
-                name: '3 Of Diamonds',
-                shortHand: '3D',
-                suit: 'diamonds',
-                value: 3
-        },
-        {
-                name: '4 Of Diamonds',
-                shortHand: '4D',
-                suit: 'diamonds',
-                value: 4
-        },
-        {
-                name: '5 Of Diamonds',
-                shortHand: '5D',
-                suit: 'diamonds',
-                value: 5
-        },
-        {
-                name: '6 Of Diamonds',
-                shortHand: '6D',
-                suit: 'diamonds',
-                value: 6
-        },
-        {
-                name: '7 Of Diamonds',
-                shortHand: '7D',
-                suit: 'diamonds',
-                value: 7
-        },
-        {
-                name: '8 Of Diamonds',
-                shortHand: '8D',
-                suit: 'diamonds',
-                value: 8
-        },
-        {
-                name: '9 Of Diamonds',
-                shortHand: '9D',
-                suit: 'diamonds',
-                value: 9
-        },
-        {
-                name: '10 Of Diamonds',
-                shortHand: '10D',
-                suit: 'diamonds',
-                value: 10
-        },
-        {
-                name: 'Jack Of Diamonds',
-                shortHand: 'JD',
-                suit: 'diamonds',
-                value: 11
-        },
-        {
-                name: 'Queen Of Diamonds',
-                shortHand: 'QD',
-                suit: 'diamonds',
-                value: 12
-        },
-        {
-                name: 'King Of Diamonds',
-                shortHand: 'KD',
-                suit: 'diamonds',
-                value: 13
-        },
-        {
-                name: 'Ace Of Diamonds',
-                shortHand: 'AD',
-                suit: 'diamonds',
-                value: 14
-        },
-        {
-                name: '2 Of Spades',
-                shortHand: '2S',
-                suit: 'spades',
-                value: 2
-        },
-        {
-                name: '3 Of Spades',
-                shortHand: '3S',
-                suit: 'spades',
-                value: 3
-        },
-        {
-                name: '4 Of Spades',
-                shortHand: '4S',
-                suit: 'spades',
-                value: 4
-        },
-        {
-                name: '5 Of Spades',
-                shortHand: '5S',
-                suit: 'spades',
-                value: 5
-        },
-        {
-                name: '6 Of Spades',
-                shortHand: '6S',
-                suit: 'spades',
-                value: 6
-        },
-        {
-                name: '7 Of Spades',
-                shortHand: '7S',
-                suit: 'spades',
-                value: 7
-        },
-        {
-                name: '8 Of Spades',
-                shortHand: '8S',
-                suit: 'spades',
-                value: 8
-        },
-        {
-                name: '9 Of Spades',
-                shortHand: '9S',
-                suit: 'spades',
-                value: 9
-        },
-        {
-                name: '10 Of Spades',
-                shortHand: '10S',
-                suit: 'spades',
-                value: 10
-        },
-        {
-                name: 'Jack Of Spades',
-                shortHand: 'JS',
-                suit: 'spades',
-                value: 11
-        },
-        {
-                name: 'Queen Of Spades',
-                shortHand: 'QS',
-                suit: 'spades',
-                value: 12
-        },
-        {
-                name: 'King Of Spades',
-                shortHand: 'KS',
-                suit: 'spades',
-                value: 13
-        },
-        {
-                name: 'Ace Of Spades',
-                shortHand: 'AS',
-                suit: 'spades',
-                value: 14
-        },
-        {
-                name: '2 Of Hearts',
-                shortHand: '2H',
-                suit: 'hearts',
-                value: 2
-        },
-        {
-                name: '3 Of Hearts',
-                shortHand: '3H',
-                suit: 'hearts',
-                value: 3
-        },
-        {
-                name: '4 Of Hearts',
-                shortHand: '4H',
-                suit: 'hearts',
-                value: 4
-        },
-        {
-                name: '5 Of Hearts',
-                shortHand: '5H',
-                suit: 'hearts',
-                value: 5
-        },
-        {
-                name: '6 Of Hearts',
-                shortHand: '6H',
-                suit: 'hearts',
-                value: 6
-        },
-        {
-                name: '7 Of Hearts',
-                shortHand: '7H',
-                suit: 'hearts',
-                value: 7
-        },
-        {
-                name: '8 Of Hearts',
-                shortHand: '8H',
-                suit: 'hearts',
-                value: 8
-        },
-        {
-                name: '9 Of Hearts',
-                shortHand: '9H',
-                suit: 'hearts',
-                value: 9
-        },
-        {
-                name: '10 Of Hearts',
-                shortHand: '10H',
-                suit: 'hearts',
-                value: 10
-        },
-        {
-                name: 'Jack Of Hearts',
-                shortHand: 'JH',
-                suit: 'hearts',
-                value: 11
-        },
-        {
-                name: 'Queen Of Hearts',
-                shortHand: 'QH',
-                suit: 'hearts',
-                value: 12
-        },
-        {
-                name: 'King Of Hearts',
-                shortHand: 'KH',
-                suit: 'hearts',
-                value: 13
-        },
-        {
-                name: 'Ace Of Hearts',
-                shortHand: 'AH',
-                suit: 'hearts',
-                value: 14
-        }
-        ],
         
-    // establish the arrays that will represent the player's and computers's hands
+        // establish the arrays that will represent the player's and computers's hands
+
         _hand: {
-            player: [],
-            com: []
+                player: [],
+                com: []
         },
         
-    // make getters and setters for the hands
+        // make getters and setters for the hands
     
         get playerHand () {
-          return this._hand.player;
+                return this._hand.player;
         },
         
         set playerHand (player) {
-            this._hand.player = player;
+                this._hand.player = player;
         },
-        
+
         get comHand () {
-            return this._hand.com;
+                return this._hand.com;
+        },
+            
+        set comHand (com) {
+                this._hand.com = com;
         },
         
-        set comHand (com) {
-            this._hand.com = com;
-        },
         
     // use the getter methods
     
         get handOfCards () {
             return {
-                playerHand: this.playerHand,
-                comHand: this.comHand
+                playerHand: this.playerHand
             }
         },
 
@@ -382,9 +91,10 @@ const deck = {
       return this._cards = (this._cards.slice(-bottomAmount)).concat(this._cards.slice(0, topAmount))
       },
 
-      // deals 1 card at a time starting with the player; up to 5 cards each
+      // deals 1 card at a time to each player; up to 5 cards each
 
-      deal () {
+      deal() {
+        this.buildDeck()
         this.shuffleDeck()
         this.cutDeck()
     
@@ -395,28 +105,28 @@ const deck = {
           this.comHand.push(this._cards[i])
           i++
         } while (this.playerHand.length < 5 && this.comHand.length < 5)
-        
-      for (j = 0; j < 5; j++) {
-        return this._hand
-      }
+    
+        for (j = 0; j < 5; j++) {
+          return this._hand
+        }
       },
 
-      debugHands () {
+      //debugHands () {
 
         /* push the cards into the arrays manually and use to test specific hands; 
         remember that this code assumes there are only 52 unique cards;
         duplicating cards might produce undesirable results */
-        this.playerHand.push(this._cards[7], this._cards[11], this._cards[10], this._cards[9], this._cards[12])
-        this.comHand.push(this._cards[46], this._cards[51], this._cards[50], this._cards[48], this._cards[49])
-
-      }
+        //this.playerHand.push(this._cards[7], this._cards[11], this._cards[10], this._cards[9], this._cards[12])
+        //this.comHand.push(this._cards[46], this._cards[51], this._cards[50], this._cards[48], this._cards[49])
+      //}
 };
 
 // use to test hands; do not use with 'deck.deal()'
 //deck.debugHands() 
 
 // shuffles and cuts deck and deals cards; do not use with 'deck.debugHands()'
-deck.deal() 
+
+deck.deal()
 
 const playerAttr = {
         cards: [],
@@ -425,6 +135,7 @@ const playerAttr = {
         set: '',
         score: 0
 }
+
 
 const comAttr = {
         cards: [],
@@ -436,14 +147,14 @@ const comAttr = {
 
 const showPlayerHand = () => {
         for (const card of deck.playerHand) {
-                playerAttr.cards.push(card.shortHand)
+                playerAttr.cards.push(card.name)
         }
         return playerAttr.cards
 }
 
 const showComHand = () => {
    for (const card of deck.comHand) {
-        comAttr.cards.push(card.shortHand)
+        comAttr.cards.push(card.name)
 }
    return comAttr.cards
 }
@@ -479,27 +190,27 @@ const parseComValues = () => {
 
 const evaluateHands = (hand) => {
 
-        /* sorts the values pertaining to the hand from smallest to largest*/
+        // sorts the values pertaining to the hand from smallest to largest
         hand.values.sort(function(a, b) {
                 return a - b;
         })
 
         const inOrder = []
 
-        /* determines if the sorted values are in increments of 1; needed to determine if a hand is a 
-        Straight or a Flush type */
+        // determines if the sorted values are in increments of 1; needed to determine if a hand is a 
+        //Straight or a Flush type
         for (i=0; i < 4; i++) {
                 (hand.values[i + 1] === hand.values[i] + 1) ? inOrder.push(true) : inOrder.push(false)
              }
 
         const counts = {};
 
-        /* tallies the number of times cards with the same value occur in the hands; lists them
-        in 'key:value' notation; stores in an object called 'counts' */
+        // tallies the number of times cards with the same value occur in the hands; lists them
+        //in 'key:value' notation; stores in an object called 'counts'
         hand.values.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
 
-        /* takes only the values of all items in 'counts'; needed to determine whether or not
-        a hand contains multiple cards with the same value */
+        // takes only the values of all items in 'counts'; needed to determine whether or not
+        //a hand contains multiple cards with the same value
         const occurences = Object.values(counts)
 
         if (hand.values[0] === 10 && !inOrder.includes(false) && hand.suits.every(suit => suit === hand.suits[0])) {
@@ -811,6 +522,8 @@ const scoring = () => {
         } 
 }
 
+
+
 parsePlayerSuits()
 parsePlayerValues()
 parseComSuits()
@@ -823,3 +536,7 @@ console.log(`The computer's cards are: `, showComHand())
 console.log(evaluateHands(comAttr))
 console.log('')
 console.log(scoring())
+
+
+//console.log(deck._cards)
+//console.log(deck.playerHand)
